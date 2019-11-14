@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class CounterCtrl : MonoBehaviour
 {
     [SerializeField]
-    private int counter = 0;
+    private long counter = 0;
 
     [SerializeField]
-    private int tenBillionTarget = 1000000000;
+    private long tenBillionTarget = 10000000000;
 
     [SerializeField]
     private Text scoreText;
@@ -27,9 +27,9 @@ public class CounterCtrl : MonoBehaviour
     [SerializeField]
     private UnityEvent tenBillionEvent;
 
-    public int Counter { get => counter; set => counter = value; }
+    public long Counter { get => counter; set => counter = value; }
 
-    public void CountUp(int count)
+    public void CountUp(long count)
     {
         Counter += count;
         if(Counter >= tenBillionTarget)
@@ -57,7 +57,7 @@ public class CounterCtrl : MonoBehaviour
         UpdateScoreText();
     }
 
-    public void CountDown(int count)
+    public void CountDown(long count)
     {
         Counter -= count;
         if(Counter < 0)
@@ -77,15 +77,7 @@ public class CounterCtrl : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        if (Counter > 0)
-        {
-            scoreText.text = Counter.ToString() + "9";
-        }
-        else
-        {
-            scoreText.text = Counter.ToString();
-        }
-
+        scoreText.text = Counter.ToString();
         
     }
 }
